@@ -165,12 +165,11 @@ function loadQuiz() {
         </div>
       </div>
     `;
-    // Guardar la respuesta correcta para comparar después
+    // Guardar opciones barajadas y texto correcto
     preg.opcionesBarajadas = opcionesBarajadas;
     preg.correctaTexto = preg.opciones[preg.correcta];
   });
 
-  // Guardar las preguntas para evaluar después
   window.preguntasParaEvaluar = preguntasSeleccionadas;
 }
 
@@ -190,15 +189,25 @@ function evaluar() {
     }
     if (respuestaUsuario === preg.correctaTexto) {
       aciertos++;
-      resultadoHTML += `<p><strong>Pregunta ${idx+1}:</strong> Correcta</p>`;
+      resultadoHTML += `<p><strong>Pregunta ${idx+1}:</strong> ✅ Correcta</p>`;
     } else {
-      resultadoHTML += `<p><strong>Pregunta ${idx+1}:</strong> Incorrecta. La respuesta correcta es: <em>${preg.correctaTexto}</em></p>`;
+      resultadoHTML += `<p><strong>Pregunta ${idx+1}:</strong> ❌ Incorrecta. La respuesta correcta es: <em>${preg.correctaTexto}</em></p>`;
     }
   });
 
   const resultadoDiv = document.getElementById("resultado");
   resultadoDiv.style.display = "block";
   resultadoDiv.innerHTML = `<h3>Tu resultado: ${aciertos} de ${total} respuestas correctas</h3>` + resultadoHTML;
+
+  // 🔊 Sonido según el resultado
+  const correcto = document.getElementById("sonidoCorrecto");
+  const incorrecto = document.getElementById("sonidoIncorrecto");
+
+  if (aciertos >= total * 0.7) {
+    if (correcto) correcto.play();
+  } else {
+    if (incorrecto) incorrecto.play();
+  }
 }
 
 window.onload = loadQuiz;

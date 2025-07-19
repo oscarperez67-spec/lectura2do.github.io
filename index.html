@@ -4,70 +4,7 @@
   <meta charset="UTF-8">
   <title>📖 Comprensión Lectora para 2do Año</title>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Fredoka', sans-serif;
-      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
-      color: #333;
-      padding: 2em;
-      max-width: 900px;
-      margin: auto;
-    }
-    h1, h2 {
-      text-align: center;
-      color: #4A148C;
-    }
-    .cuento {
-      background-color: #fff;
-      padding: 1.5em;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin-bottom: 2em;
-      line-height: 1.6;
-    }
-    .imagen-cuento {
-      text-align: center;
-      margin-bottom: 1em;
-    }
-    .imagen-cuento img {
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .preguntas {
-      background-color: #e8f5e9;
-      padding: 1.5em;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .pregunta {
-      margin-bottom: 1em;
-    }
-    .opciones label {
-      display: block;
-      margin: 0.2em 0;
-    }
-    button {
-      margin-top: 1em;
-      padding: 0.7em 2em;
-      font-size: 1em;
-      background-color: #4A148C;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #6A1B9A;
-    }
-    .resultado {
-      margin-top: 1em;
-      padding: 1em;
-      background-color: #fff3cd;
-      border: 1px solid #ffeeba;
-      border-radius: 8px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>📖 Comprensión Lectora para 2do Año</h1>
@@ -104,10 +41,12 @@
   <div class="preguntas">
     <h2>Preguntas de Comprensión</h2>
     <form id="quizForm"></form>
-    <button onclick="evaluar()">Enviar respuestas</button>
+    <button onclick="evaluar()">🎯 Enviar respuestas</button>
     <div id="resultado" class="resultado" style="display:none;"></div>
   </div>
 
   <script src="preguntas.js"></script>
+  <audio id="sonidoCorrecto" src="sounds/correcto.mp3"></audio>
+  <audio id="sonidoIncorrecto" src="sounds/incorrecto.mp3"></audio>
 </body>
 </html>
